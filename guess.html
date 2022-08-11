@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../guess/style.css">
+</head>
+<body>
+    <h1 class="h1">
+        Please insert a wild guess number from 1 to 10:
+    </h1>
+
+    <input 
+        type="text"
+        id="id1"
+        class="myInput"
+        name = "myInput"
+        value =""
+    >
+    <script>
+        function wildGuess() {
+            return parseInt(Math.random() *10 +1);  // 0.0001 - 0.9999, 0.0001 - 9.9999, 1.0001 - 10.9999
+        }
+        var guessNumber = wildGuess();
+        console.log(guessNumber);
+        var yourNumber = Number(prompt("Insert a number from 1 to 10"));
+        var count = 0;
+        while(yourNumber != guessNumber)
+        {
+            alert("You miss it!");
+            var yourNumber = prompt("Insert a new number");
+            count++;
+            guessNumber = wildGuess();
+            console.log(guessNumber);
+        }
+            var yourText = document.querySelector(".h1");
+            yourText.innerText = "YOU WINNNNNN after " + count + " attempts";
+    </script>
+</body>
+</html>
